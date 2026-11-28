@@ -9,16 +9,17 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
             fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
+                bunny('Plus Jakarta Sans', {
+                    weights: [400, 500, 600, 700, 800],
                 }),
             ],
         }),
         tailwindcss(),
     ],
-    server: {
-        watch: {
-            ignored: ['**/storage/framework/views/**'],
-        },
+server: {
+    host: '127.0.0.1',
+    hmr: { host: '127.0.0.1' },
+    watch: { ignored: ['**/storage/framework/views/**'] },
+
     },
 });

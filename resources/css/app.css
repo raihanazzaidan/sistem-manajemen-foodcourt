@@ -4,6 +4,46 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+    --color-navy: #003366;
+    --color-navy-800: #00294f;
+    --color-brand: #f5b800;
+    --color-surface: #f7f9fb;
+    --color-ink: #0b1c30;
+    --color-muted: #6b7a8f;
+    --color-line: #e3e8ef;
+    --color-pill: #eff6ff;
+    --color-pill-text: #1d4ed8;
+    --color-accent: #f97316;
+    --color-danger: #d92d20;
+    --color-danger-bg: #fef0f1;
+    --color-success: #12a05c;
+    --color-success-bg: #e8f7ef;
+    --color-warn: #b7791f;
+    --color-warn-bg: #fff4d6;
+}
+
+[x-cloak] { display: none !important; }
+
+@layer components {
+    .field-label { @apply mb-1.5 block text-xs font-bold text-ink; }
+    .field-input {
+        @apply w-full rounded-xl border border-line bg-white px-3.5 py-3 text-sm text-ink
+               placeholder:text-muted/70 outline-none transition
+               focus:border-navy focus:ring-4 focus:ring-navy/10;
+    }
+    .field-input.is-invalid { @apply border-danger/60 bg-danger-bg focus:border-danger focus:ring-danger/10; }
+    .field-error { @apply mt-1.5 text-xs text-danger; }
+    .btn-primary {
+        @apply inline-flex w-full items-center justify-center rounded-xl bg-navy px-5 py-3.5 text-sm
+               font-bold text-white transition hover:bg-navy-800 focus-visible:outline-2
+               focus-visible:outline-offset-2 focus-visible:outline-navy disabled:cursor-not-allowed disabled:opacity-50;
+    }
+    .btn-ghost {
+        @apply inline-flex items-center justify-center rounded-xl border border-line bg-white px-5 py-3
+               text-sm font-bold text-navy transition hover:bg-surface;
+    }
+    .alert-danger { @apply rounded-xl bg-danger-bg px-3.5 py-3 text-xs text-danger; }
+    .alert-success { @apply rounded-xl bg-success-bg px-3.5 py-3 text-xs text-success; }
 }
